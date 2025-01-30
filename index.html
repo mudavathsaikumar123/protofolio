@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUDAVATH SAI KUMAR | Frontend Developer | Software Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2d3436;
+            --accent-color: #0984e3;
+            --light-bg: #f5f6fa;
+            --text-dark: #2d3436;
+            --text-light: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #2d3436 0%, #000000 100%);
+            color: var(--text-light);
+            min-height: 100vh;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            position: relative;
+        }
+
+        .contact-bar {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .contact-bar a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Profile Section */
+        .profile-section {
+            text-align: center;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .profile-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 5px solid var(--accent-color);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.05);
+        }
+
+        .header-content {
+            padding-left: 3rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 1rem;
+            background: rgba(45, 52, 54, 0.9);
+            border-radius: 0 0 0 15px;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        nav a:hover {
+            background: var(--accent-color);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        /* Education Section */
+        .education-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .achievement-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 20px;
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* Project Cards */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+
+        .tech-stack span {
+            background: rgba(9, 132, 227, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        .contact-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            transition: all 0.3s;
+        }
+
+        .contact-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        /* Certifications Section */
+        .certification-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .certification-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .header-content {
+                padding-left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="contact-bar">
+            <a href="tel:+918341268943"><i class="fas fa-phone"></i> +91 8341268943</a>
+            <a href="#"><i class="fas fa-map-marker-alt"></i> Hyderabad, Telangana</a>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
+                <li><a href="#skills"><i class="fas fa-tools"></i> Skills</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="profile-section">
+            <img src="SAI_PIC.jpg" alt="MUDAVATH SAI KUMAR" class="profile-photo">
+        </div>
+        
+        <div class="header-content">
+            <h1>Hello,It's Me</h1>
+            <h2>MUDAVATH SAI KUMAR</h2>
+            <p class="highlight">Computer Science Graduate | Software Engineer | Frontend Developer</p>
+            <a href="https://drive.google.com/file/d/1uVEhRQBp85F7TqQVJMhMvpG18zSImSri/view?usp=sharing" class="download-cv" target="_blank">
+                Download CV <i class="fas fa-download"></i>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section id="about">
+            <div class="section-header">
+                <h2>Professional Summary</h2>
+            </div>
+            <div class="content">
+                <p>As a Computer Science graduate (2025) specializing in AI/ML ,I am eager to embark on my professional journey in the tech industry. With a solid foundation in software development, data analysis, and machine learning, I am passionate about leveraging my skills to contribute to innovative projects. I am seeking an entry-level position where I can apply my technical expertise, problem-solving abilities, and enthusiasm for technology to drive organizational success and personal growth.</p>
+            </div>
+        </section>
+
+        <section id="education">
+            <div class="section-header">
+                <h2>Education</h2>
+            </div>
+            <div class="education-card">
+                <h3>Marri Laxman Reddy Institute of Technology and Management,Hyderabad</h3>
+                <p class="degree">B.Tech in Computer Science & Engineering (AI/ML)</p>
+                <p class="duration">2021-2025 | CGPA: 8.25/10</p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="section-header">
+                <h2>Technical Projects</h2>
+            </div>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>AI IMAGE GENERATOR</h3>
+                    <div class="tech-stack">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>Java Script</span>
+                        <span>API Key</span>
+                    </div>
+                    <ul class="project-features">
+                        <li>In this project an user can generate image of user choice</li>
+                        <li>95% command accuracy</li>
+                        <li>Different styles,colors also provided for user choice</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <h3>AI POWERED INVENTORY MANAGEMENT SYSTEM</h3>
+                    <div class="tech-stack">
+                        <span>ML Algorithms</span>
+                        <span>HTML</span>
+                        <span>Java Script</span>
+                        <span>Computer Vision</span>
+                    </div>
+                    <ul class="project-features">
+                        <li>Real-time asset tracking</li>
+                        <li>90% detection accuracy</li>
+                        <li>Predictive maintenance</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="section-header">
+                <h2>Technical Skills</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">Java</div>
+                <div class="skill-card">Python</div>
+                <div class="skill-card">c</div>
+                <div class="skill-card">SQL</div>
+                <div class="skill-card">HTML</div>
+                <div class="skill-card">CSS</div>
+                <div class="skill-card">Java Script</div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="section-header">
+                <h2>Let's Connect</h2>
+            </div>
+            <div class="contact-container">
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+        
+                <!-- Existing Contact Links -->
+                <div class="contact-info">
+                    <div class="contact-links">
+                        <a href="mailto:mudavathsaikumar8@gmail.com">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/mudavath-sai-kumar8">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <p class="availability">Available for full-time opportunities starting 2025</p>
+                </div>
+            </div>
+        </section>
+        
+        <style>
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent-color);
+            outline: none;
+        }
+        
+        .submit-btn {
+            background: var(--accent-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: #0768b5;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+        }
+        </style>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Chandra Shekhar. Crafted with <i class="fas fa-heart"></i> and code</p>
+    </footer>
+</body>
+</html>
